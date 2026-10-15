@@ -15,12 +15,12 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="py-20 lg:py-28 bg-slate-50 dark:bg-navy-950/60 border-t border-slate-200/80 dark:border-navy-800 transition-colors duration-300"
+      className="py-20 lg:py-28 bg-slate-50 dark:bg-navy-950/70 border-t border-slate-200/80 dark:border-navy-800 transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 dark:bg-tls-red/15 text-tls-red text-xs font-bold tracking-wider uppercase mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 dark:bg-tls-red/15 text-tls-red text-xs font-bold tracking-wider uppercase mb-3 border border-red-200/60 dark:border-tls-red/30">
             <span>Direct Operations Desk</span>
           </div>
 
@@ -38,16 +38,16 @@ export function ContactSection() {
           {/* Left Column: Official Contact & Company Details */}
           <div className="lg:col-span-5 space-y-6">
             {/* Office Address Card */}
-            <div className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-navy-900 border border-slate-200/80 dark:border-navy-800 shadow-sm">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-navy-800 text-tls-red flex items-center justify-center flex-shrink-0 shadow-sm">
+            <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-navy-900 border border-slate-200/80 dark:border-navy-800 shadow-md">
+              <div className="flex items-start gap-4 mb-5">
+                <div className="w-12 h-12 rounded-full bg-slate-100 dark:bg-navy-800 text-tls-red border border-slate-200/70 dark:border-navy-700 flex items-center justify-center flex-shrink-0 shadow-sm">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-xs font-bold tracking-wider uppercase text-slate-400 dark:text-slate-400 mb-1">
+                  <h3 className="text-[11px] font-bold tracking-wider uppercase text-slate-400 dark:text-slate-400 mb-1">
                     Registered Office & Operations
                   </h3>
-                  <p className="text-base font-bold text-navy-950 dark:text-white mb-1">
+                  <p className="text-base font-extrabold text-navy-950 dark:text-white mb-1">
                     {SITE_CONFIG.companyName}
                   </p>
                   <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -71,15 +71,15 @@ export function ContactSection() {
             </div>
 
             {/* Direct Contact Buttons Card */}
-            <div className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-navy-900 border border-slate-200/80 dark:border-navy-800 shadow-sm space-y-4">
+            <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-navy-900 border border-slate-200/80 dark:border-navy-800 shadow-md space-y-4">
               <h3 className="text-xs font-bold tracking-wider uppercase text-slate-400 dark:text-slate-400 mb-2">
                 Direct Communication Channels
               </h3>
 
               {/* Telephone */}
-              <div className="flex items-center justify-between gap-3 p-4 rounded-xl bg-slate-50 dark:bg-navy-950 border border-slate-200/70 dark:border-navy-800">
+              <div className="flex items-center justify-between gap-3 p-4 rounded-2xl bg-slate-50 dark:bg-navy-950 border border-slate-200/70 dark:border-navy-800">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-red-100 dark:bg-red-950/60 text-tls-red flex items-center justify-center flex-shrink-0">
+                  <div className="w-11 h-11 rounded-full bg-red-100 dark:bg-red-950/60 text-tls-red flex items-center justify-center flex-shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
@@ -94,16 +94,16 @@ export function ContactSection() {
 
                 <a
                   href={SITE_CONFIG.phoneLink}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-bold text-white bg-navy-950 dark:bg-slate-800 hover:bg-slate-800 transition-colors whitespace-nowrap"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-white bg-navy-950 dark:bg-slate-800 hover:bg-slate-800 transition-colors whitespace-nowrap"
                 >
                   <span>Call Now</span>
                 </a>
               </div>
 
               {/* WhatsApp */}
-              <div className="flex items-center justify-between gap-3 p-4 rounded-xl bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-200/70 dark:border-emerald-800/40">
+              <div className="flex items-center justify-between gap-3 p-4 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-200/70 dark:border-emerald-800/40">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0">
+                  <div className="w-11 h-11 rounded-full bg-emerald-100 dark:bg-emerald-900/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0">
                     <MessageSquare className="w-5 h-5" />
                   </div>
                   <div>
@@ -120,7 +120,7 @@ export function ContactSection() {
                   href={SITE_CONFIG.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition-colors whitespace-nowrap"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition-colors whitespace-nowrap shadow-sm shadow-emerald-600/30"
                 >
                   <span>WhatsApp</span>
                 </a>
@@ -128,7 +128,7 @@ export function ContactSection() {
             </div>
 
             {/* Coordination Assurance Note */}
-            <div className="p-5 rounded-2xl bg-gradient-to-br from-navy-900 to-navy-950 text-white border border-navy-800 shadow-sm flex items-start gap-4">
+            <div className="p-6 rounded-3xl bg-gradient-to-br from-navy-900 to-navy-950 text-white border border-navy-800 shadow-md flex items-start gap-4">
               <Shield className="w-6 h-6 text-tls-red flex-shrink-0 mt-0.5" />
               <div>
                 <h4 className="text-sm font-bold text-white mb-1">

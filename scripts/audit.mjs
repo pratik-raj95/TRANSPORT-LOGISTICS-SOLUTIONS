@@ -137,27 +137,21 @@ async function runAudit() {
   });
   console.log(`Initial root dark class: ${initialThemeEval.result.value}`);
 
-  // Click toggle
-  await send('Runtime.evaluate', {
-    expression: `document.querySelector('button[aria-label*="Switch to"]').click()`,
-  });
-  await new Promise(r => setTimeout(r, 600));
+  console.log('\n--- Section-Level Visual Captures ---');
+  const sections = ['services', 'about', 'why-tls', 'process', 'contact'];
+  for (const s of sections) {
+    await send('Runtime.evaluate', {
+      expression: `document.getElementById('${s}')?.scrollIntoView({ behavior: 'instant' })`
+    });
+    await new Promise(r => setTimeout(r, 400));
+    const shot = await send('Page.captureScreenshot', { format: 'png' });
+    fs.writeFileSync(`test-screenshots/section-${s}.png`, Buffer.from(shot.data, 'base64'));
+    console.log(`Captured test-screenshots/section-${s}.png`);
+  }
 
-  const toggledThemeEval = await send('Runtime.evaluate', {
-    expression: `document.documentElement.classList.contains('dark')`,
-    returnByValue: true
-  });
-  console.log(`Theme after first toggle: dark = ${toggledThemeEval.result.value}`);
-
-  // Take screenshot in dark/light toggled state
-  const themeShot = await send('Page.captureScreenshot', { format: 'png' });
-  fs.writeFileSync('test-screenshots/theme-toggled.png', Buffer.from(themeShot.data, 'base64'));
-
-  // Toggle back
-  await send('Runtime.evaluate', {
-    expression: `document.querySelector('button[aria-label*="Switch to"]').click()`,
-  });
-  await new Promise(r => setTimeout(r, 400));
+  // Scroll back to top
+  await send('Runtime.evaluate', { expression: `window.scrollTo(0, 0)` });
+  await new Promise(r => setTimeout(r, 300));
 
   console.log('\n--- Mobile Drawer Menu Audit ---');
   await send('Emulation.setDeviceMetricsOverride', {

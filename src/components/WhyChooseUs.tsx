@@ -9,6 +9,7 @@ import {
   Users,
   Building2,
   CheckCircle,
+  ArrowRight,
 } from "lucide-react";
 
 const ICON_MAP = {
@@ -32,13 +33,16 @@ export function WhyChooseUs() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/15 text-slate-200 text-xs font-bold tracking-wider uppercase mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-slate-200 text-xs font-bold tracking-wider uppercase mb-4">
             <ShieldCheck className="w-3.5 h-3.5 text-tls-red" />
             <span>Operational Integrity</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-5">
-            Reliable Service. Professional Coordination.
+            Reliable Service.{" "}
+            <span className="text-electric-400">
+              Professional Coordination.
+            </span>
           </h2>
 
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
@@ -46,7 +50,7 @@ export function WhyChooseUs() {
           </p>
         </div>
 
-        {/* 5 Distinctive Value Proposition Cards */}
+        {/* 5 Distinctive Value Proposition Cards + Commitment Card */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {SITE_CONFIG.valueProps.map((prop, idx) => {
             const Icon = ICON_MAP[prop.iconName] || CheckCircle;
@@ -55,18 +59,18 @@ export function WhyChooseUs() {
             return (
               <div
                 key={prop.title}
-                className={`relative p-8 rounded-2xl border transition-all duration-300 transform hover:-translate-y-1 ${
+                className={`relative p-8 rounded-3xl border transition-all duration-300 transform hover:-translate-y-1.5 ${
                   isHighlighted
-                    ? "bg-navy-900/90 border-tls-red/40 shadow-xl"
-                    : "bg-navy-900/50 hover:bg-navy-900/80 border-navy-800 hover:border-navy-700"
+                    ? "bg-navy-900/90 border-tls-red/40 shadow-2xl shadow-tls-red/10"
+                    : "bg-navy-900/60 hover:bg-navy-900/90 border-navy-800 hover:border-navy-700 hover:shadow-xl"
                 }`}
               >
-                {/* Number indicator */}
+                {/* Number indicator & Circular Icon */}
                 <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-navy-800 text-white flex items-center justify-center border border-navy-700 shadow-inner">
+                  <div className="w-12 h-12 rounded-full bg-navy-800 text-white flex items-center justify-center border border-navy-700 shadow-inner">
                     <Icon className="w-6 h-6 text-tls-red" />
                   </div>
-                  <span className="text-xs font-mono font-semibold tracking-wider text-slate-500">
+                  <span className="text-xs font-mono font-bold tracking-widest text-slate-500">
                     0{idx + 1}
                   </span>
                 </div>
@@ -75,7 +79,7 @@ export function WhyChooseUs() {
                   {prop.title}
                 </h3>
 
-                <p className="text-sm text-slate-300/90 leading-relaxed">
+                <p className="text-sm text-slate-300 leading-relaxed">
                   {prop.description}
                 </p>
               </div>
@@ -83,9 +87,9 @@ export function WhyChooseUs() {
           })}
 
           {/* 6th Card: Direct Coordination Commitment */}
-          <div className="relative p-8 rounded-2xl bg-gradient-to-br from-navy-900 via-navy-850 to-navy-900 border border-electric-500/30 flex flex-col justify-between">
+          <div className="relative p-8 rounded-3xl bg-gradient-to-br from-navy-900 via-navy-850 to-navy-900 border border-electric-500/30 flex flex-col justify-between shadow-xl">
             <div>
-              <div className="inline-block px-2.5 py-1 rounded bg-electric-500/20 text-electric-400 text-xs font-bold uppercase tracking-wider mb-4">
+              <div className="inline-block px-3 py-1 rounded-full bg-electric-500/20 text-electric-400 text-xs font-bold uppercase tracking-wider mb-4 border border-electric-500/30">
                 Our Commitment
               </div>
               <h3 className="text-xl font-bold text-white mb-3">
@@ -98,9 +102,10 @@ export function WhyChooseUs() {
 
             <a
               href="#contact"
-              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold text-white bg-tls-red hover:bg-tls-red-hover transition-colors shadow"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-xs font-bold text-white bg-tls-red hover:bg-tls-red-hover active:bg-tls-red-dark transition-all shadow-md shadow-tls-red/25"
             >
               <span>Connect With Our Team</span>
+              <ArrowRight className="w-4 h-4" />
             </a>
           </div>
         </div>

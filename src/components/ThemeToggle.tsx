@@ -19,7 +19,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
   if (!isMounted) {
     return (
       <div
-        className={`w-10 h-10 rounded-xl border border-slate-200 dark:border-navy-800 bg-slate-100/50 dark:bg-navy-900/50 flex items-center justify-center ${className}`}
+        className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-slate-200 dark:border-navy-700 bg-slate-100/60 dark:bg-navy-900/60 flex items-center justify-center ${className}`}
         aria-hidden="true"
       />
     );
@@ -31,10 +31,10 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
     <button
       type="button"
       onClick={toggleTheme}
-      className={`relative inline-flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-electric-500/50 ${
+      className={`relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-electric-500/50 ${
         isDark
-          ? "bg-navy-800/90 text-amber-400 hover:bg-navy-700 border border-navy-700 shadow-inner"
-          : "bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200/80 shadow-sm"
+          ? "bg-navy-900/90 text-amber-400 hover:bg-navy-800 border border-navy-700 shadow-inner"
+          : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 shadow-sm"
       } ${className}`}
       aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
       title={`Switch to ${isDark ? "light" : "dark"} mode`}

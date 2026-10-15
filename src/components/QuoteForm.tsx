@@ -231,7 +231,7 @@ export function QuoteForm() {
   }
 
   return (
-    <div className="p-6 sm:p-10 rounded-2xl bg-white dark:bg-navy-900 border border-slate-200/80 dark:border-navy-800 shadow-xl">
+    <div className="p-6 sm:p-10 rounded-3xl bg-white dark:bg-navy-900 border border-slate-200/80 dark:border-navy-800 shadow-xl">
       <div className="mb-6">
         <h3 className="text-2xl font-bold text-navy-950 dark:text-white mb-2">
           Request a Transportation Quote
@@ -468,7 +468,7 @@ export function QuoteForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-white bg-tls-red hover:bg-tls-red-hover active:bg-tls-red-dark transition-all duration-200 shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed text-sm"
+            className="flex-1 inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-bold text-white bg-tls-red hover:bg-tls-red-hover active:bg-tls-red-dark transition-all duration-200 shadow-md shadow-tls-red/25 hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed text-sm"
           >
             {isSubmitting ? (
               <>
@@ -487,7 +487,7 @@ export function QuoteForm() {
             href={getWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-semibold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/50 hover:bg-emerald-100 dark:hover:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-800 transition-colors text-sm"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/50 hover:bg-emerald-100 dark:hover:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-800 transition-colors text-sm"
             title="Send prefilled details directly via WhatsApp"
           >
             <MessageSquare className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />

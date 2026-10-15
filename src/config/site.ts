@@ -5,6 +5,7 @@ export interface ServiceItem {
   description: string;
   iconName: 'Truck' | 'PackageCheck' | 'Boxes' | 'Container' | 'Workflow' | 'Headphones';
   tag: string;
+  image: string;
   highlights: string[];
 }
 
@@ -60,6 +61,7 @@ export const SITE_CONFIG = {
       description: "Dedicated surface transportation tailored for freight movements with planned transit schedules and route monitoring.",
       iconName: "Truck",
       tag: "Proposed Capability",
+      image: "/images/services/service-road.jpg",
       highlights: ["Regional line-haul routes", "Scheduled movements", "Freight route planning"]
     },
     {
@@ -69,6 +71,7 @@ export const SITE_CONFIG = {
       description: "Direct point-to-point truckload services intended for larger shipments requiring dedicated vehicle allocation.",
       iconName: "PackageCheck",
       tag: "Proposed Capability",
+      image: "/images/services/service-ftl.jpg",
       highlights: ["Exclusive vehicle usage", "Direct origin-to-destination transit", "Reduced handling risk"]
     },
     {
@@ -78,6 +81,7 @@ export const SITE_CONFIG = {
       description: "Consolidated freight movements designed for commercial shipments that do not require an entire dedicated truck.",
       iconName: "Boxes",
       tag: "Proposed Capability",
+      image: "/images/services/service-ptl.jpg",
       highlights: ["Consolidated load management", "Optimized freight expense", "Standardized handling"]
     },
     {
@@ -87,6 +91,7 @@ export const SITE_CONFIG = {
       description: "Logistics support structured for enterprise manufacturers, distributors, and trading businesses.",
       iconName: "Container",
       tag: "Proposed Capability",
+      image: "/images/services/service-freight.jpg",
       highlights: ["B2B distribution support", "Industrial goods handling", "Documentation coordination"]
     },
     {
@@ -96,6 +101,7 @@ export const SITE_CONFIG = {
       description: "Operational assistance to bridge consignors, transporters, and receiving locations for seamless handover.",
       iconName: "Workflow",
       tag: "Proposed Capability",
+      image: "/images/services/service-coordination.jpg",
       highlights: ["Single point of coordination", "Proactive milestone updates", "Handover management"]
     },
     {
@@ -105,6 +111,7 @@ export const SITE_CONFIG = {
       description: "Customized arrangement and logistical planning designed to match your company's operational rhythm.",
       iconName: "Headphones",
       tag: "Proposed Capability",
+      image: "/images/services/service-support.jpg",
       highlights: ["Tailored operational planning", "Responsive client assistance", "Scalable support"]
     }
   ] as ServiceItem[],

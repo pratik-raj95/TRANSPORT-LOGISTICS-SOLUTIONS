@@ -19,11 +19,11 @@ export default function Home() {
         {/* Hero Section */}
         <HeroSection />
 
-        {/* About Section */}
-        <AboutSection />
-
         {/* Proposed Services Section */}
         <ServicesSection />
+
+        {/* About Section */}
+        <AboutSection />
 
         {/* Why Choose TLS Section */}
         <WhyChooseUs />

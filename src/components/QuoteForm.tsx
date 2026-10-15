@@ -175,42 +175,55 @@ export function QuoteForm() {
 
   if (submitSuccess) {
     return (
-      <div className="p-8 sm:p-10 rounded-2xl bg-white dark:bg-navy-900 border border-emerald-500/30 shadow-xl text-center">
-        <div className="w-16 h-16 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto mb-6">
+      <div className="p-8 sm:p-10 rounded-2xl bg-white dark:bg-navy-900 border border-amber-500/30 shadow-xl text-center">
+        <div className="w-16 h-16 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center mx-auto mb-6">
           <CheckCircle2 className="w-9 h-9" />
         </div>
 
         <h3 className="text-2xl font-bold text-navy-950 dark:text-white mb-2">
-          Inquiry Successfully Registered
+          Inquiry Validated & Reference Generated
         </h3>
 
         <div className="inline-block px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-navy-800 text-xs font-mono font-semibold text-slate-700 dark:text-slate-300 mb-4 border border-slate-200 dark:border-navy-700">
           Reference ID: {referenceId}
         </div>
 
-        <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-md mx-auto mb-8">
-          Thank you, <strong className="text-navy-950 dark:text-white">{formData.fullName}</strong>. Your freight requirements have been recorded. Our coordination team will review the transit corridor and get in touch at{" "}
-          <strong className="text-navy-950 dark:text-white">{formData.phone}</strong>.
-        </p>
+        {/* Honest explanation of backend status */}
+        <div className="p-4 rounded-xl bg-amber-50/80 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 text-left mb-6 max-w-lg mx-auto">
+          <p className="text-xs sm:text-sm text-amber-900 dark:text-amber-200 leading-relaxed font-medium">
+            <strong>System Status:</strong> Because an automated email service or persistent database is not configured on this preview deployment, your enquiry has <em>not</em> been emailed to an inbox.
+          </p>
+          <p className="text-xs text-amber-800 dark:text-amber-300 mt-2 leading-relaxed">
+            To deliver your freight requirements directly to the TLS coordination team right now, click <strong>Dispatch via WhatsApp</strong> below or call directly.
+          </p>
+        </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href={getWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 transition-colors shadow"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition-colors shadow-lg shadow-emerald-600/20"
           >
             <MessageSquare className="w-4 h-4" />
-            <span>Also Send via WhatsApp</span>
+            <span>Dispatch via WhatsApp (+91 93116 06860)</span>
+          </a>
+
+          <a
+            href={SITE_CONFIG.phoneLink}
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl text-sm font-semibold text-navy-950 dark:text-white bg-slate-100 dark:bg-navy-800 hover:bg-slate-200 dark:hover:bg-navy-700 border border-slate-200 dark:border-navy-750 transition-colors"
+          >
+            <Phone className="w-4 h-4 text-tls-red" />
+            <span>Call Operations</span>
           </a>
 
           <button
             type="button"
             onClick={handleReset}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-navy-800 hover:bg-slate-200 dark:hover:bg-navy-700 transition-colors"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl text-xs font-semibold text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white transition-colors"
           >
-            <RefreshCw className="w-4 h-4" />
-            <span>Submit Another Inquiry</span>
+            <RefreshCw className="w-3.5 h-3.5" />
+            <span>Edit / Reset</span>
           </button>
         </div>
       </div>
@@ -219,13 +232,21 @@ export function QuoteForm() {
 
   return (
     <div className="p-6 sm:p-10 rounded-2xl bg-white dark:bg-navy-900 border border-slate-200/80 dark:border-navy-800 shadow-xl">
-      <div className="mb-8">
+      <div className="mb-6">
         <h3 className="text-2xl font-bold text-navy-950 dark:text-white mb-2">
           Request a Transportation Quote
         </h3>
-        <p className="text-sm text-slate-500 dark:text-slate-400">
+        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">
           Provide your shipment details below. Fields marked with <span className="text-tls-red">*</span> are required.
         </p>
+
+        {/* Honest upfront note about backend configuration */}
+        <div className="p-3.5 rounded-xl bg-slate-100/90 dark:bg-navy-800/80 border border-slate-200 dark:border-navy-700 flex items-start gap-2.5 text-xs text-slate-600 dark:text-slate-300">
+          <AlertCircle className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
+          <span>
+            <strong>Note:</strong> Automated email/database storage is in client-preview mode. For instant, guaranteed transmission to our Jhajjar desk, use the <strong>Send via WhatsApp</strong> button or call directly.
+          </span>
+        </div>
       </div>
 
       {serverError && (
@@ -475,7 +496,7 @@ export function QuoteForm() {
         </div>
 
         <p className="text-[11px] text-slate-400 dark:text-slate-500 text-center pt-2">
-          Submissions are directly dispatched to our Jhajjar coordination desk. We respect your operational privacy.
+          For real-time operational coordination, dispatch via WhatsApp to +91 93116 06860. Commercial confidentiality is strictly maintained.
         </p>
       </form>
     </div>

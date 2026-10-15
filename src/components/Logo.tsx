@@ -34,7 +34,7 @@ export function Logo({ className = "", variant = "navbar" }: LogoProps) {
         />
       </div>
 
-      <div className="flex flex-col text-left">
+      <div className="hidden sm:flex flex-col text-left">
         <span className="font-bold text-sm tracking-tight text-navy-950 dark:text-white leading-tight">
           TLS
         </span>

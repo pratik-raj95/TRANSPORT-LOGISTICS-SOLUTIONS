@@ -94,8 +94,9 @@ export async function POST(request: Request) {
     return NextResponse.json({
       success: true,
       referenceId,
+      hasActiveBackend: false,
       message:
-        "Your transportation inquiry has been successfully registered with TLS. Our coordination desk will review your details and contact you via phone or WhatsApp shortly.",
+        "Enquiry validation passed. Note: Automated backend database/email transmission is not configured in this preview environment. Please dispatch via WhatsApp for real-world handling.",
     });
   } catch (error) {
     console.error("[TLS Quote Submission Error]", error);

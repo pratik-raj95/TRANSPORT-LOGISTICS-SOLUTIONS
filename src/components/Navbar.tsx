@@ -129,13 +129,13 @@ export function Navbar() {
               {/* Theme Toggle */}
               <ThemeToggle />
 
-              {/* Primary Quote CTA Button */}
+              {/* Primary Quote CTA Button (Tablet & Desktop) */}
               <a
                 href="#contact"
-                className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-semibold text-white bg-tls-red hover:bg-tls-red-hover active:bg-tls-red-dark rounded-xl shadow-sm hover:shadow transition-all duration-200 transform hover:-translate-y-0.5"
+                className="hidden sm:inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-semibold text-white bg-tls-red hover:bg-tls-red-hover active:bg-tls-red-dark rounded-xl shadow-sm hover:shadow transition-all duration-200 transform hover:-translate-y-0.5"
               >
                 <span>Get a Quote</span>
-                <ArrowUpRight className="w-4 h-4 hidden xs:inline" />
+                <ArrowUpRight className="w-4 h-4 hidden md:inline" />
               </a>
 
               {/* Mobile Menu Button */}
@@ -160,7 +160,7 @@ export function Navbar() {
       {/* Mobile Menu Overlay & Drawer */}
       {mobileMenuOpen && (
         <div
-          className="fixed inset-0 z-40 lg:hidden bg-navy-950/70 backdrop-blur-sm transition-opacity"
+          className="fixed inset-0 z-[60] lg:hidden bg-navy-950/70 backdrop-blur-sm transition-opacity"
           onClick={() => setMobileMenuOpen(false)}
           aria-hidden="true"
         >

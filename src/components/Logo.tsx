@@ -15,7 +15,7 @@ export function Logo({ className = "", variant = "navbar" }: LogoProps) {
 
   return (
     <Link
-      href="#hero"
+      href="/"
       className={`group inline-flex items-center gap-3 transition-opacity duration-200 hover:opacity-95 ${className}`}
       aria-label={`${SITE_CONFIG.companyName} Home`}
     >
@@ -36,10 +36,10 @@ export function Logo({ className = "", variant = "navbar" }: LogoProps) {
 
       <div className="hidden sm:flex flex-col text-left">
         <span className="font-bold text-sm tracking-tight text-navy-950 dark:text-white leading-tight">
-          TLS
+          {SITE_CONFIG.brandName}
         </span>
         <span className="text-[10px] tracking-wider uppercase font-medium text-slate-500 dark:text-slate-400 leading-none">
-          Logistics Solutions
+          {SITE_CONFIG.brandDescriptor}
         </span>
       </div>
     </Link>

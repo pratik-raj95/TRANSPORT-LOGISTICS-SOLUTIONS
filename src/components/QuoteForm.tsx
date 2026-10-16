@@ -40,14 +40,40 @@ const initialFormData: FormData = {
 };
 
 export function QuoteForm() {
-  const [formData, setFormData] = useState<FormData>(initialFormData);
+  const [formData, setFormData] = useState<FormData>(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const searchParams = new URLSearchParams(window.location.search);
+        const serviceParam = searchParams.get("service");
+        const vehicleParam = searchParams.get("vehicle");
+        const industryParam = searchParams.get("industry");
+
+        let details = "";
+        if (serviceParam) {
+          details = `Inquiry regarding Service: ${serviceParam}`;
+        } else if (vehicleParam) {
+          details = `Inquiry regarding Fleet Vehicle: ${vehicleParam}`;
+        } else if (industryParam) {
+          details = `Inquiry regarding Industry Logistics: ${industryParam}`;
+        }
+
+        if (details) {
+          return { ...initialFormData, shipmentDetails: details };
+        }
+      } catch {
+        // ignore
+      }
+    }
+    return initialFormData;
+  });
+
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [referenceId, setReferenceId] = useState<string>("");
   const [serverError, setServerError] = useState<string>("");
 
-  // Listen to service preselection from services section
+  // Listen to service preselection from services section custom event
   useEffect(() => {
     const handleServiceSelect = (e: Event) => {
       const customEvent = e as CustomEvent<{ serviceTitle: string }>;

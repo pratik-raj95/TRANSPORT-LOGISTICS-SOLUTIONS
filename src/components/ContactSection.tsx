@@ -142,7 +142,7 @@ export function ContactSection() {
           </div>
 
           {/* Right Column: Quote Form */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7" id="quote">
             <QuoteForm />
           </div>
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { SITE_CONFIG } from "@/config/site";
 import {
   Route,
@@ -35,7 +36,7 @@ export function WhyChooseUs() {
         <div className="max-w-3xl mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-slate-200 text-xs font-bold tracking-wider uppercase mb-4">
             <ShieldCheck className="w-3.5 h-3.5 text-tls-red" />
-            <span>Operational Integrity</span>
+            <span>OPERATIONAL INTEGRITY</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-5">
@@ -53,7 +54,7 @@ export function WhyChooseUs() {
         {/* 5 Distinctive Value Proposition Cards + Commitment Card */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {SITE_CONFIG.valueProps.map((prop, idx) => {
-            const Icon = ICON_MAP[prop.iconName] || CheckCircle;
+            const Icon = ICON_MAP[prop.iconName as keyof typeof ICON_MAP] || CheckCircle;
             const isHighlighted = idx === 0;
 
             return (
@@ -100,13 +101,13 @@ export function WhyChooseUs() {
               </p>
             </div>
 
-            <a
-              href="#contact"
+            <Link
+              href="/contact#quote"
               className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-xs font-bold text-white bg-tls-red hover:bg-tls-red-hover active:bg-tls-red-dark transition-all shadow-md shadow-tls-red/25"
             >
               <span>Connect With Our Team</span>
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

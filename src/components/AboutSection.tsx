@@ -2,11 +2,28 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { SITE_CONFIG } from "@/config/site";
-import { Truck, ShieldCheck, HeartHandshake, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Truck, ShieldCheck, HeartHandshake, ArrowRight, MapPin } from "lucide-react";
 
 export function AboutSection() {
-  const highlightIcons = [Truck, ShieldCheck, HeartHandshake];
+  const highlights = [
+    {
+      title: "Dependable Transportation",
+      description: "Committed to timely transit and disciplined road operations to protect your supply chain consistency.",
+      icon: Truck
+    },
+    {
+      title: "Professional Coordination",
+      description: "Systematic communication between loading points and receiving facilities to minimize transit friction.",
+      icon: ShieldCheck
+    },
+    {
+      title: "Customer-Focused Approach",
+      description: "Direct, personal accessibility with prompt responses to quotes, queries, and vehicle dispatch.",
+      icon: HeartHandshake
+    }
+  ];
 
   return (
     <section id="about" className="py-20 lg:py-28 bg-white dark:bg-navy-950 transition-colors duration-300 relative overflow-hidden">
@@ -39,7 +56,7 @@ export function AboutSection() {
                   </div>
                   <div>
                     <p className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
-                      Operational Philosophy
+                      Operational Focus
                     </p>
                     <p className="text-sm font-extrabold text-navy-950 dark:text-white">
                       Disciplined Road Logistics Coordination
@@ -51,15 +68,15 @@ export function AboutSection() {
 
             {/* Red Accent Badge on side */}
             <div className="absolute -bottom-3 -right-3 hidden sm:flex items-center gap-1.5 bg-tls-red text-white text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg shadow-tls-red/30">
-              <CheckCircle2 className="w-3.5 h-3.5" />
-              <span>Jhajjar Hub Operations</span>
+              <MapPin className="w-3.5 h-3.5" />
+              <span>MET City Jhajjar Hub</span>
             </div>
           </div>
 
           {/* Right Column: Text Content & 3 Value Highlights */}
           <div className="lg:col-span-7">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 dark:bg-tls-red/15 text-tls-red text-xs font-bold tracking-wider uppercase mb-4 border border-red-200/60 dark:border-tls-red/30">
-              <span>About TLS</span>
+              <span>ABOUT TLS TRANSPORT</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-950 dark:text-white tracking-tight leading-tight mb-6">
@@ -70,24 +87,24 @@ export function AboutSection() {
             </h2>
 
             <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-5 font-normal">
-              Transport Logistics Solutions (TLS) operates with a singular focus: delivering dependable road transportation and structured cargo coordination that modern commercial businesses can rely upon.
+              <strong>{SITE_CONFIG.companyName}</strong> operates with a singular focus: delivering dependable road transportation and structured cargo coordination that modern commercial businesses can rely upon.
             </p>
 
             <p className="text-sm sm:text-base text-slate-500 dark:text-slate-400 leading-relaxed mb-8">
-              Based at MET City, Jhajjar, Haryana, our operations emphasize thorough route planning, proactive dispatch communication, and systematic vehicle placement to keep industrial, commercial, and freight consignments moving smoothly across major delivery corridors.
+              Based at MET City, Jhajjar, Haryana, our operations emphasize thorough highway route planning, proactive dispatch communication, and systematic vehicle placement to keep industrial, commercial, and freight consignments moving predictably across major corridors.
             </p>
 
             {/* Three Value Highlights */}
             <div className="space-y-4 mb-8">
-              {SITE_CONFIG.aboutHighlights.map((highlight, index) => {
-                const IconComponent = highlightIcons[index % highlightIcons.length];
+              {highlights.map((highlight) => {
+                const Icon = highlight.icon;
                 return (
                   <div
                     key={highlight.title}
                     className="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-navy-900/60 border border-slate-200/70 dark:border-navy-800 transition-all hover:border-slate-300 dark:hover:border-navy-700 hover:shadow-sm"
                   >
                     <div className="w-10 h-10 rounded-full bg-navy-950 dark:bg-navy-800 text-white flex items-center justify-center flex-shrink-0 mt-0.5 border border-slate-200/50 dark:border-navy-700 shadow-sm">
-                      <IconComponent className="w-5 h-5 text-tls-red" />
+                      <Icon className="w-5 h-5 text-tls-red" />
                     </div>
                     <div>
                       <h3 className="text-base font-bold text-navy-950 dark:text-white mb-1">
@@ -104,20 +121,19 @@ export function AboutSection() {
 
             {/* Action Links */}
             <div className="flex flex-wrap items-center gap-4">
-              <a
-                href="#services"
-                className="inline-flex items-center gap-2 text-sm font-bold text-navy-950 dark:text-white hover:text-tls-red dark:hover:text-tls-red transition-colors group"
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-white bg-tls-red hover:bg-tls-red-hover transition-colors shadow-md shadow-tls-red/25 text-sm"
               >
-                <span>View Proposed Service Categories</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 text-tls-red" />
-              </a>
-              <span className="text-slate-300 dark:text-slate-700">•</span>
-              <a
-                href="#contact"
+                <span>Read Full Company Profile</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/services"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-navy-950 dark:hover:text-white transition-colors"
               >
-                <span>Request Transportation Assessment</span>
-              </a>
+                <span>View All Services</span>
+              </Link>
             </div>
           </div>
         </div>

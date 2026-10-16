@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { SITE_CONFIG } from "@/config/site";
 import { ArrowRight, Clock, MessageSquare, ClipboardList, Truck, CheckCircle2 } from "lucide-react";
 
@@ -29,14 +30,14 @@ export function ProcessSection() {
           </p>
 
           <p className="text-xs text-slate-400 dark:text-slate-500 italic">
-            Note: Inquiries are coordinated directly with our operations desk. Automated live tracking is not deployed at this stage.
+            Inquiries are coordinated directly with our Jhajjar operations desk. Transparent transit updates provided throughout the journey.
           </p>
         </div>
 
         {/* 
           Process Timeline: 
-          - Desktop: Horizontal timeline with fine connecting line
-          - Mobile: Vertical timeline with comfortable spacing
+          - Desktop: Horizontal timeline with connecting line
+          - Mobile: Vertical timeline
         */}
         <div className="relative">
           {/* Desktop Connecting Line */}
@@ -103,13 +104,13 @@ export function ProcessSection() {
             </p>
           </div>
 
-          <a
-            href="#contact"
+          <Link
+            href="/contact#quote"
             className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-bold text-white bg-tls-red hover:bg-tls-red-hover active:bg-tls-red-dark transition-all duration-200 text-sm whitespace-nowrap shadow-md shadow-tls-red/25 hover:shadow-lg"
           >
             <span>Start Step 01</span>
             <ArrowRight className="w-4 h-4" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

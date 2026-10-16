@@ -81,7 +81,7 @@ export default function AboutPage() {
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
                 About{" "}
-                <span className="text-tls-red underline decoration-tls-red/40 decoration-4 underline-offset-8">
+                <span className="inline-block text-tls-red underline decoration-tls-red/40 decoration-4 underline-offset-8">
                   TLS Transport
                 </span>
               </h1>

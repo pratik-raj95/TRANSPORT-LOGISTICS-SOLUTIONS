@@ -77,17 +77,20 @@ export async function POST(request: Request) {
     // Note: Backend integration hook.
     // In production with CRM or SMTP credentials configured (e.g., SendGrid, Nodemailer, Resend),
     // an email or webhook would be triggered here.
-    // Server log for record keeping:
-    console.info(`[TLS Quote Lead Received] Ref: ${referenceId}`, {
+    // Safe operational logging without exposing user PII in raw server logs (GDPR & privacy safe)
+    const maskedPhone = cleanPhone.length >= 4
+      ? `${"*".repeat(cleanPhone.length - 4)}${cleanPhone.slice(-4)}`
+      : "****";
+
+    console.info(`[TLS Quote Lead Processed] Ref: ${referenceId}`, {
       referenceId,
-      fullName: fullName.trim(),
-      companyName: companyName.trim(),
-      phone: phone.trim(),
-      email: email.trim(),
+      phoneMasked: maskedPhone,
+      hasEmail: Boolean(email && email.trim()),
+      hasCompany: Boolean(companyName && companyName.trim()),
       pickupLocation: pickupLocation.trim(),
       deliveryLocation: deliveryLocation.trim(),
-      shipmentDetails: shipmentDetails.trim(),
-      messageLength: additionalMessage.trim().length,
+      shipmentDetailsLength: shipmentDetails.trim().length,
+      hasAdditionalNotes: Boolean(additionalMessage && additionalMessage.trim()),
       timestamp: new Date().toISOString(),
     });
 

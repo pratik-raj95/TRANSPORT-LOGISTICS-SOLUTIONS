@@ -270,7 +270,7 @@ export function QuoteForm() {
         <div className="p-3.5 rounded-xl bg-slate-100/90 dark:bg-navy-800/80 border border-slate-200 dark:border-navy-700 flex items-start gap-2.5 text-xs text-slate-600 dark:text-slate-300">
           <AlertCircle className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
           <span>
-            <strong>Note:</strong> Automated email/database storage is in client-preview mode. For instant, guaranteed transmission to our Jhajjar desk, use the <strong>Send via WhatsApp</strong> button or call directly.
+            <strong>Note:</strong> Automated email/database storage is in client-preview mode. For instant, direct transmission to our Jhajjar desk, use the <strong>Send via WhatsApp</strong> button or call directly.
           </span>
         </div>
       </div>

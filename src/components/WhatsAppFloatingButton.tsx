@@ -8,7 +8,7 @@ export function WhatsAppFloatingButton() {
   const [showTooltip, setShowTooltip] = useState(true);
 
   return (
-    <div className="fixed bottom-20 md:bottom-6 right-5 md:right-6 z-40 flex items-center gap-3">
+    <div className="hidden md:flex fixed bottom-6 right-6 z-40 items-center gap-3">
       {/* Optional dismissible prompt */}
       {showTooltip && (
         <div className="hidden sm:flex items-center gap-2 py-2 px-3.5 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-700 shadow-xl text-xs text-navy-950 dark:text-white">

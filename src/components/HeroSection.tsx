@@ -64,7 +64,7 @@ export function HeroSection() {
             {/* Headline with distinctive TLS Red treatment */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08] mb-6">
               Moving Your{" "}
-              <span className="text-tls-red underline decoration-tls-red/40 decoration-4 underline-offset-8">
+              <span className="inline-block text-tls-red underline decoration-tls-red/40 decoration-4 underline-offset-8">
                 Business Forward.
               </span>
             </h1>
